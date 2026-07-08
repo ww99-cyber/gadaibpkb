@@ -517,27 +517,7 @@
         }, 12000); // Turun ke 2 slot pada detik ke-12
 
 
-        // 2. INTERACTIVE SLIDER LOGIC (CALCULATOR)
-        const priceSlider = document.getElementById('price-slider');
-        const priceDisplay = document.getElementById('price-display');
-        const loanDisplay = document.getElementById('loan-display');
-
-        // Fungsi pembantu untuk memformat angka ke Rupiah (e.g., Rp 150.000.000)
-        function formatRupiah(value) {
-            return 'Rp ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-        }
-
-        // Event listener saat slider digeser
-        priceSlider.addEventListener('input', function() {
-            const currentVal = parseInt(this.value);
-            
-            // Tampilkan harga mobil terpilih
-            priceDisplay.textContent = formatRupiah(currentVal);
-
-            // Hitung estimasi pencairan dana maksimal (contoh: 85% dari nilai aset)
-            const estimatedLoan = Math.round(currentVal * 0.85);
-            loanDisplay.textContent = formatRupiah(estimatedLoan);
-        });
+       
     </script>
 
 </body>
