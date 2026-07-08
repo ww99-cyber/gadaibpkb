@@ -167,29 +167,32 @@
                 <h3 class="text-xl font-bold text-white mb-1 text-center">Formulir & Simulasi Cepat</h3>
                 <p class="text-xs text-slate-400 text-center mb-6"Silahkan isi pengajuan di bawah ini.</p>
                 
-               <form action="https://formspree.io/f/ganti_dengan_id_formspree_mu" method="POST">
-    
-    <h3>Formulir Pengajuan Dana BFI Finance</h3>
-    
-    <label for="nama">Nama Lengkap sesuai KTP:</label>
-    <input type="text" id="nama" name="Nama_Nasabah" required placeholder="Contoh: Rifki">
-
-    <label for="whatsapp">Nomor WhatsApp Aktif:</label>
-    <input type="tel" id="whatsapp" name="No_WhatsApp" required placeholder="Contoh: 08123456789">
-
-    <label for="jaminan">Jenis Jaminan Aset:</label>
-    <select id="jaminan" name="Jenis_Jaminan" required>
-        <option value="">-- Pilih Jaminan --</option>
-        <option value="BPKB Motor">BPKB Motor (Cair Kilat)</option>
-        <option value="BPKB Mobil">BPKB Mobil (Bunga Rendah)</option>
-        <option value="Sertifikat Rumah">Sertifikat Rumah (Plafon Besar)</option>
-    </select>
-
-    <label for="domisili">Kota/Kabupaten Domisili:</label>
-    <input type="text" id="domisili" name="Kota_Domisili" required placeholder="Contoh: Tangerang">
-
-    <button type="submit">Ajukan Dana Sekarang</button>
-</form>
+               <form action="https://formspree.io/f/xojozkbn" method="POST" class="space-y-4">
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Nama Lengkap Sesuai KTP</label>
+                        <input type="text" placeholder="Contoh: Ahmad Subagjo" class="w-full p-3 text-sm border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 bg-slate-950 text-white placeholder-slate-600 transition" required>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">No. WhatsApp</label>
+                            <input type="tel" placeholder="081234..." class="w-full p-3 text-sm border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 bg-slate-950 text-white placeholder-slate-600 transition" required>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Kota Domisili</label>
+                            <input type="text" placeholder="Contoh: Jakarta" class="w-full p-3 text-sm border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 bg-slate-950 text-white placeholder-slate-600 transition" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1">Jenis Layanan Yang Dibutuhkan</label>
+                        <select class="w-full p-3 text-sm border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-500 bg-slate-950 text-white transition">
+                            <option class="bg-slate-900">Gadai BPKB Mobil Pribadi</option>
+                            <option class="bg-slate-900">Gadai BPKB Truk & Fleet Perusahaan</option>
+                            <option class="bg-slate-900">Take Over Kredit Mobil / Truk</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3.5 rounded-xl shadow-lg transition duration-200 text-center text-sm uppercase tracking-wider cursor-pointer">
+                        Dapatkan Simulasi Sekarang
+                    </button>
 
                 
                     
