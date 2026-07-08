@@ -959,3 +959,11 @@ section {
     font-size: 0.875rem;
     margin-bottom: 1.5rem;
 }
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+    object-fit: cover;
+}
