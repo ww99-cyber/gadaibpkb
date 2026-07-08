@@ -863,3 +863,99 @@ section {
     border-top: 1px solid #1e293b;
     margin: 1.5rem 0;
 }
+
+/* ==========================================================================
+   12. STYLING UNTUK HALAMAN ARTIKEL (BLOG)
+   ========================================================================== */
+.max-w-3xl {
+    max-width: 48rem; /* Lebar artikel ideal agar mata tidak lelah membaca */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.blog-container {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+.breadcrumb {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+.breadcrumb a {
+    color: #f59e0b;
+    text-decoration: none;
+}
+
+.blog-header h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+    .blog-header h1 { font-size: 2.5rem; }
+}
+
+.blog-meta {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #1e293b;
+}
+
+/* Mengatur Jarak Elemen di Dalam Text Artikel */
+.blog-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #cbd5e1; /* Kontras tinggi aman PageSpeed */
+    margin-bottom: 1.5rem;
+}
+
+.blog-content h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+    .blog-content h2 { font-size: 1.5rem; }
+}
+
+/* Desain Box Kutipan/Tips */
+.blog-content blockquote {
+    background-color: #0f172a;
+    border-left: 4px solid #f59e0b;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+}
+.blog-content blockquote strong {
+    color: #f59e0b;
+}
+
+/* Box CTA di Bawah Artikel */
+.blog-cta {
+    background: linear-gradient(to bottom right, #0f172a, #1e1b4b);
+    border: 1px solid #1e293b;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+.blog-cta h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+.blog-cta p {
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
