@@ -1,20 +1,25 @@
-/* RESET & BASE STYLES */
+/* ==========================================================================
+   1. RESET, BASE STYLES & VARIABLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
+
 body {
     background-color: #020617; /* bg-slate-950 */
     color: #e2e8f0; /* text-slate-200 */
     -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
 }
 
-/* UTILITIES & CONTAINER */
+/* CONTAINER UTAMA */
 .max-w-6xl {
     max-width: 72rem;
     margin-left: auto;
@@ -23,7 +28,14 @@ body {
     padding-right: 1rem;
 }
 
-/* 1. TOP BANNER */
+/* WARNA TEKS KHUSUS */
+.text-amber {
+    color: #f59e0b;
+}
+
+/* ==========================================================================
+   2. TOP ANNOUNCEMENT BANNER
+   ========================================================================== */
 .top-banner {
     background: linear-gradient(to right, #be123c, #dc2626, #d97706);
     color: #ffffff;
@@ -37,6 +49,7 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     line-height: 1.4;
 }
+
 .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     background-color: #ffffff;
@@ -44,21 +57,24 @@ body {
     padding: 0.125rem 0.375rem;
     border-radius: 0.25rem;
 }
+
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: .5; }
 }
 
-/* 2. FLOATING WHATSAPP */
+/* ==========================================================================
+   3. FLOATING WHATSAPP BUTTON (RESPONSIVE POSITION)
+   ========================================================================== */
 .floating-wa {
     position: fixed;
     bottom: 1rem;
     left: 50%;
-    transform: translateX(-50%); /* Membuatnya otomatis di tengah bawah pada layar HP */
+    transform: translateX(-50%); /* Posisi tengah bawah di HP */
     z-index: 50;
     background-color: #059669;
     color: #ffffff;
-    padding: 0.75rem 1.5rem; /* Dibuat sedikit melebar agar teks di HP terlihat rapi */
+    padding: 0.75rem 1.5rem;
     border-radius: 9999px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     display: flex;
@@ -69,24 +85,27 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
 }
-.floating-wa:hover { 
-    background-color: #10b981; 
-    transform: translateX(-50%) scale(1.05); /* Sedikit membesar saat ditekan/dihover */
+
+.floating-wa:hover {
+    background-color: #10b981;
+    transform: translateX(-50%) scale(1.05);
 }
-.floating-wa svg { 
-    width: 1.5rem; 
-    height: 1.5rem; 
-    fill: currentColor; 
+
+.floating-wa svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
 }
+
 .wa-tooltip {
     color: #ffffff;
     font-size: 0.85rem;
     font-weight: 700;
     white-space: nowrap;
-    opacity: 1; /* Teks langsung muncul sebagai tombol CTA di HP */
+    opacity: 1;
 }
 
-/* Kembalikan ke pojok kanan bawah khusus untuk layar Laptop/Komputer (Desktop) */
+/* Pindah ke pojok kanan bawah khusus layar Tablet & PC Desktop */
 @media (min-width: 768px) {
     .floating-wa {
         left: auto;
@@ -106,17 +125,19 @@ body {
         font-weight: 600;
         padding: 0.375rem 0.75rem;
         border-radius: 0.5rem;
-        opacity: 0; /* Di desktop, sembunyikan teks sebelum di-hover */
+        opacity: 0; /* Sembunyikan teks di PC sebelum di-hover */
         transition: opacity 0.3s;
         pointer-events: none;
         border: 1px solid #1e293b;
     }
-    .floating-wa:hover .wa-tooltip { 
-        opacity: 1; 
+    .floating-wa:hover .wa-tooltip {
+        opacity: 1;
     }
 }
 
-/* 3. NAVBAR */
+/* ==========================================================================
+   4. NAVIGATION BAR (NAVBAR)
+   ========================================================================== */
 .navbar {
     background-color: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(12px);
@@ -125,6 +146,7 @@ body {
     z-index: 40;
     border-bottom: 1px solid rgba(30, 41, 59, 0.6);
 }
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -132,20 +154,49 @@ body {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-.logo-main { font-size: 1.5rem; font-weight: 900; color: #ffffff; letter-spacing: -0.025em; text-decoration: none;}
-.text-amber { color: #f59e0b; }
-.logo-sub { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; font-weight: 700; }
 
-/* Desktop Menu (Sembunyi secara default di HP) */
-.nav-links { display: none; gap: 1.5rem; font-size: 0.875rem; font-weight: 600; }
-.nav-links a { color: #cbd5e1; text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: #fbbf24; }
-
-/* Responsive Navbar untuk desktop */
-@media (min-width: 768px) { 
-    .nav-links { display: flex; } 
+.logo-main {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+    text-decoration: none;
 }
 
+.logo-sub {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #cbd5e1; /* Kontras PageSpeed Lolos */
+    font-weight: 700;
+}
+
+/* Menu Navigasi Desktop */
+.nav-links {
+    display: none;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #fbbf24;
+}
+
+@media (min-width: 992px) {
+    .nav-links {
+        display: flex;
+    }
+}
+
+/* TOMBOL UTAMA */
 .btn-primary {
     background-color: #f59e0b;
     color: #020617;
@@ -158,23 +209,30 @@ body {
     border: none;
     display: inline-block;
 }
-.btn-primary:hover { background-color: #d97706; }
 
-/* 4. HERO SECTION */
+.btn-primary:hover {
+    background-color: #d97706;
+}
+
+/* ==========================================================================
+   5. HERO SECTION & FORMULIR PENGAJUAN
+   ========================================================================== */
 .hero {
     background: linear-gradient(to bottom right, #0f172a, #312e81, #020617);
     padding: 3rem 1rem;
     border-bottom: 1px solid rgba(30, 41, 59, 0.5);
 }
+
 .hero-grid {
     display: grid;
-    grid-template-cols: 1fr; /* Di HP menumpuk ke bawah */
+    grid-template-cols: 1fr; /* 1 Kolom penuh di HP */
     gap: 2.5rem;
     align-items: center;
 }
-@media (min-width: 992px) { 
+
+@media (min-width: 992px) {
     .hero { padding: 6rem 0; }
-    .hero-grid { grid-template-cols: 1fr 1fr; } /* Di Layar Besar Terbagi Dua */
+    .hero-grid { grid-template-cols: 1fr 1fr; } /* 2 Kolom berdampingan di PC */
 }
 
 .badge-ojk {
@@ -190,11 +248,27 @@ body {
     color: #f59e0b;
     margin-bottom: 1.5rem;
 }
-.hero h1 { font-size: 2.2rem; font-weight: 900; line-height: 1.2; color: #ffffff; margin-bottom: 1.5rem; }
-@media (min-width: 768px) { .hero h1 { font-size: 3rem; } }
 
-.hero p { color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; }
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
 
+@media (min-width: 768px) {
+    .hero h1 { font-size: 3rem; }
+}
+
+.hero p {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* STATISTIK HERO */
 .stats-grid {
     display: grid;
     grid-template-cols: repeat(3, 1fr);
@@ -203,11 +277,27 @@ body {
     padding-top: 1.5rem;
     text-align: center;
 }
-.stat-val { display: block; font-size: 1.25rem; font-weight: 700; color: #f59e0b; }
-@media (min-width: 768px) { .stat-val { font-size: 1.5rem; } }
-.stat-lbl { font-size: 10px; color: #94a3b8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
 
-/* FORMULIR */
+.stat-val {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #f59e0b;
+}
+
+@media (min-width: 768px) {
+    .stat-val { font-size: 1.5rem; }
+}
+
+.stat-lbl {
+    font-size: 10px;
+    color: #cbd5e1;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* BOX FORMULIR */
 .form-box {
     background-color: #0f172a;
     padding: 1.5rem;
@@ -215,21 +305,50 @@ body {
     border: 1px solid #1e293b;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
 }
-@media (min-width: 768px) { .form-box { padding: 2rem; } }
-.form-box h3 { font-size: 1.25rem; font-weight: 700; color: #ffffff; text-align: center; margin-bottom: 0.25rem; }
-.form-box .sub-title { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-bottom: 1.5rem; }
 
-.form-group { margin-bottom: 1rem; }
-.form-grid-2 { 
-    display: grid; 
-    grid-template-cols: 1fr; /* Di HP input form bertumpuk */
-    gap: 1rem; 
+@media (min-width: 768px) {
+    .form-box { padding: 2rem; }
 }
+
+.form-box h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+.form-box .sub-title {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-grid-2 {
+    display: grid;
+    grid-template-cols: 1fr;
+    gap: 1rem;
+}
+
 @media (min-width: 480px) {
-    .form-grid-2 { grid-template-cols: 1fr 1fr; } /* Di tablet/HP layar lebar sejajar 2 kolom */
+    .form-grid-2 { grid-template-cols: 1fr 1fr; }
 }
 
-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.25rem; }
+label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #cbd5e1; /* Kontras Tinggi Lolos Standar OJK/PageSpeed */
+    margin-bottom: 0.25rem;
+}
+
 input, select {
     width: 100%;
     padding: 0.75rem;
@@ -240,8 +359,16 @@ input, select {
     color: #ffffff;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
-input:focus, select:focus { outline: none; border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4); }
-input::placeholder { color: #475569; }
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4);
+}
+
+input::placeholder {
+    color: #94a3b8; /* Kontras Placeholder Diperjelas */
+}
 
 .btn-submit {
     width: 100%;
@@ -258,9 +385,12 @@ input::placeholder { color: #475569; }
     transition: background-color 0.2s;
     margin-top: 1rem;
 }
-.btn-submit:hover { background-color: #d97706; }
 
-/* TRUST BADGES */
+.btn-submit:hover {
+    background-color: #d97706;
+}
+
+/* TRUST BADGES FORM */
 .trust-badges {
     margin-top: 1.5rem;
     padding-top: 1rem;
@@ -270,40 +400,86 @@ input::placeholder { color: #475569; }
     gap: 0.5rem;
     text-align: center;
     font-size: 9px;
-    color: #94a3b8;
+    color: #cbd5e1;
     font-weight: 600;
 }
-@media (min-width: 480px) { .trust-badges { font-size: 10px; } }
 
-.badge-card { 
-    background-color: #020617; 
-    padding: 0.5rem; 
-    border-radius: 0.5rem; 
-    border: 1px solid rgba(30, 41, 59, 0.5); 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    gap: 0.25rem; 
+@media (min-width: 480px) {
+    .trust-badges { font-size: 10px; }
 }
 
-/* SECTIONS COMMONS */
-section { padding: 4rem 1rem; }
-@media (min-width: 768px) { section { padding: 6rem 1rem; } }
-
-.section-title { text-align: center; margin-bottom: 3rem; }
-.section-title span { font-size: 0.75rem; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1rem; display: block; margin-bottom: 0.5rem; }
-.section-title h2 { font-size: 1.75rem; font-weight: 800; color: #ffffff; line-height: 1.3; }
-@media (min-width: 768px) { .section-title h2 { font-size: 2.25rem; } }
-.section-title p { color: #94a3b8; font-size: 0.875rem; max-width: 36rem; margin: 0.5rem auto 0; line-height: 1.5; }
-
-/* LAYANAN CARDS & GRID RESPONSIVE */
-.cards-grid-3 { 
-    display: grid; 
-    grid-template-cols: 1fr; 
-    gap: 1.5rem; 
+.badge-card {
+    background-color: #020617;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(30, 41, 59, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
 }
-@media (min-width: 768px) { .cards-grid-3 { grid-template-cols: repeat(2, 1fr); } }
-@media (min-width: 992px) { .cards-grid-3 { grid-template-cols: repeat(3, 1fr); } }
+
+/* ==========================================================================
+   6. SECTION HEADINGS CONFIG
+   ========================================================================== */
+section {
+    padding: 4rem 1rem;
+}
+
+@media (min-width: 768px) {
+    section { padding: 6rem 1rem; }
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #f59e0b;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.section-title h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+    .section-title h2 { font-size: 2.25rem; }
+}
+
+.section-title p {
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    max-width: 36rem;
+    margin: 0.5rem auto 0;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   7. PRODUCT LAYANAN (3 COLUMNS RESPONSIVE GRID)
+   ========================================================================== */
+.cards-grid-3 {
+    display: grid;
+    grid-template-cols: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .cards-grid-3 { grid-template-cols: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+    .cards-grid-3 { grid-template-cols: repeat(3, 1fr); }
+}
 
 .card-layanan {
     background-color: #0f172a;
@@ -315,73 +491,375 @@ section { padding: 4rem 1rem; }
     justify-content: space-between;
     transition: border-color 0.2s;
 }
-.card-layanan:hover { border-color: #334155; }
-.icon-wrapper { width: 3rem; height: 3rem; background-color: #020617; border: 1px solid #1e293b; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
-.card-layanan h3 { font-size: 1.125rem; font-weight: 700; color: #ffffff; margin-top: 1rem; }
-.card-layanan p { color: #94a3b8; font-size: 0.8rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1.5rem; }
-.card-link { font-size: 0.75rem; font-weight: 700; color: #f59e0b; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; }
-.card-link:hover { color: #fbbf24; }
 
-/* 4 LANGKAH & KEUNGGULAN SYSTEM AUTO GRID */
-.bg-light-section { background-color: rgba(15, 23, 42, 0.4); border-top: 1px solid #0f172a; border-bottom: 1px solid #0f172a; }
+.card-layanan:hover {
+    border-color: #334155;
+}
+
+.icon-wrapper {
+    width: 3rem;
+    height: 3rem;
+    background-color: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.card-layanan h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-top: 1rem;
+}
+
+.card-layanan p {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #f59e0b;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.card-link:hover {
+    color: #fbbf24;
+}
+
+/* ==========================================================================
+   8. 4 LANGKAH & KEUNGGULAN (4 COLUMNS RESPONSIVE GRID)
+   ========================================================================== */
+.bg-light-section {
+    background-color: rgba(15, 23, 42, 0.4);
+    border-top: 1px solid #0f172a;
+    border-bottom: 1px solid #0f172a;
+}
+
 .cards-grid-4 {
     display: grid;
     grid-template-cols: 1fr;
     gap: 1.25rem;
 }
-@media (min-width: 480px) { .cards-grid-4 { grid-template-cols: repeat(2, 1fr); } }
-@media (min-width: 992px) { .cards-grid-4 { grid-template-cols: repeat(4, 1fr); } }
 
-.step-card { background-color: #0f172a; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e293b; text-align: center; }
-.step-num { width: 2.5rem; height: 2.5rem; background-color: #0c1020; color: #f59e0b; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.5rem; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 900; }
-.step-card h4 { font-weight: 700; color: #ffffff; font-size: 0.9rem; margin-bottom: 0.5rem;}
-.step-card p { color: #94a3b8; font-size: 0.75rem; line-height: 1.6; }
+@media (min-width: 480px) {
+    .cards-grid-4 { grid-template-cols: repeat(2, 1fr); }
+}
 
-.step-success { background-color: rgba(6, 78, 59, 0.3); border-color: rgba(16, 185, 129, 0.3); }
-.step-success .step-num { background-color: #059669; color: #ffffff; border: none; }
-.step-success h4 { color: #34d399; }
-.step-success p { color: rgba(209, 250, 229, 0.6); }
+@media (min-width: 992px) {
+    .cards-grid-4 { grid-template-cols: repeat(4, 1fr); }
+}
 
-/* TESTIMONI CARDS */
-.testi-card { background-color: #0f172a; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e293b; display: flex; flex-direction: column; justify-content: space-between; }
-.testi-card p { color: #cbd5e1; font-size: 0.8rem; font-style: italic; line-height: 1.6; }
-.testi-user { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(30, 41, 59, 0.6); margin-top: 1.25rem; }
-.avatar { width: 2.25rem; height: 2.25rem; background-color: #030712; border: 1px solid rgba(99, 102, 241, 0.2); color: #f59e0b; border-radius: 9999px; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
-.user-info h5 { font-weight: 700; color: #ffffff; font-size: 0.75rem; }
-.user-info span { font-size: 10px; color: #64748b; display: block; }
+.step-card {
+    background-color: #0f172a;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #1e293b;
+    text-align: center;
+}
 
-/* PROSES SYARAT & FAQ */
-.two-col-grid { display: grid; grid-template-cols: 1fr; gap: 2rem; align-items: start; }
-@media (min-width: 992px) { .two-col-grid { grid-template-cols: 1.2fr 0.8fr; } }
+.step-num {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #0c1020;
+    color: #f59e0b;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 0.5rem;
+    margin: 0 auto 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 900;
+}
 
-.list-box { background-color: #0f172a; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e293b; margin-bottom: 1.5rem; }
-@media (min-width: 768px) { .list-box { padding: 2rem; } }
-.list-box h3 { font-size: 1.125rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem; }
+.step-card h4 {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
 
-.process-step { display: flex; align-items: start; gap: 1rem; margin-bottom: 1.25rem; }
-.proc-num { background-color: #020617; border: 1px solid #1e293b; color: #f59e0b; font-weight: 700; border-radius: 9999px; width: 1.75rem; height: 1.75rem; display: flex; align-items: center; justify-content: center; shrink-0; font-size: 0.875rem; }
-.process-step p { color: #cbd5e1; font-size: 0.875rem; line-height: 1.6; }
-.process-step strong { color: #ffffff; }
+.step-card p {
+    color: #cbd5e1;
+    font-size: 0.75rem;
+    line-height: 1.6;
+}
 
-.syarat-list { list-style: none; }
-.syarat-list li { display: flex; align-items: start; gap: 0.5rem; color: #cbd5e1; font-size: 0.875rem; margin-bottom: 0.75rem; line-height: 1.5; }
-.syarat-list li span { color: #f59e0b; font-weight: 700; }
+/* KARTU LANGKAH KE-4 (KHUSUS CAIR) */
+.step-success {
+    background-color: rgba(6, 78, 59, 0.3);
+    border-color: rgba(16, 185, 129, 0.3);
+}
 
-.faq-box { background: linear-gradient(to bottom right, #0f172a, #1e1b4b); color: #ffffff; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e1b4b; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-@media (min-width: 768px) { .faq-box { padding: 2rem; } }
-.faq-box span { font-size: 0.75rem; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 1.5rem; }
-.faq-content h4 { font-weight: 700; font-size: 14px; margin-bottom: 5px; color: #ffffff; line-height: 1.4; }
-.faq-content p { font-size: 13px; opacity: 0.8; line-height: 1.6; color: #cbd5e1; }
-.faq-divider { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 1.25rem 0; }
+.step-success .step-num {
+    background-color: #059669;
+    color: #ffffff;
+    border: none;
+}
 
-/* FAST CTA & FOOTER */
-.fast-cta { text-align: center; padding: 4rem 1rem; }
-.cta-container { max-w-3xl: 48rem; margin: 0 auto; }
-.cta-container h2 { font-size: 1.75rem; font-weight: 900; color: white; margin-bottom: 1rem; }
-@media (min-width: 768px) { .cta-container h2 { font-size: 2.25rem; } }
-.cta-container p { color: #cbd5e1; font-size: 14px; margin-bottom: 2rem; line-height: 1.6; }
-.large-btn { padding: 1rem 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; }
+.step-success h4 {
+    color: #34d399;
+}
 
-.footer-container { max-width: 44rem; margin: 0 auto; font-size: 11px; line-height: 1.6; color: #64748b; padding: 2rem 1rem; text-align: center; }
-.footer-title { font-weight: 700; color: #cbd5e1; text-transform: uppercase; margin-bottom: 0.5rem; font-size: 12px; letter-spacing: 0.05em; }
-.footer-divider { border: 0; border-top: 1px solid #1e293b; margin: 1.5rem 0; }
+.step-success p {
+    color: rgba(209, 250, 229, 0.75);
+}
+
+/* ==========================================================================
+   9. TESTIMONI NASABAH
+   ========================================================================== */
+.testi-card {
+    background-color: #0f172a;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #1e293b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testi-card p {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.testi-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(30, 41, 59, 0.6);
+    margin-top: 1.25rem;
+}
+
+.avatar {
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: #030712;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    color: #f59e0b;
+    border-radius: 9999px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+.user-info h5 {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 0.75rem;
+}
+
+.user-info span {
+    font-size: 10px;
+    color: #94a3b8;
+    display: block;
+}
+
+/* ==========================================================================
+   10. PROSES, SYARAT & FAQ SECTION
+   ========================================================================== */
+.two-col-grid {
+    display: grid;
+    grid-template-cols: 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (min-width: 992px) {
+    .two-col-grid { grid-template-cols: 1.2fr 0.8fr; }
+}
+
+.list-box {
+    background-color: #0f172a;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .list-box { padding: 2rem; }
+}
+
+.list-box h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.process-step {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.proc-num {
+    background-color: #020617;
+    border: 1px solid #1e293b;
+    color: #f59e0b;
+    font-weight: 700;
+    border-radius: 9999px;
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.875rem;
+}
+
+.process-step p {
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.process-step strong {
+    color: #ffffff;
+}
+
+.syarat-list {
+    list-style: none;
+}
+
+.syarat-list li {
+    display: flex;
+    align-items: start;
+    gap: 0.5rem;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.syarat-list li span {
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+/* FAQ STYLES */
+.faq-box {
+    background: linear-gradient(to bottom right, #0f172a, #1e1b4b);
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid #1e1b4b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .faq-box { padding: 2rem; }
+}
+
+.faq-box span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #818cf8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.faq-content h4 {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ffffff;
+    line-height: 1.4;
+}
+
+.faq-content p {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.faq-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1.25rem 0;
+}
+
+/* ==========================================================================
+   11. JALUR PINTAS FAST CTA & FOOTER
+   ========================================================================== */
+.fast-cta {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.cta-container {
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.cta-container h2 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .cta-container h2 { font-size: 2.25rem; }
+}
+
+.cta-container p {
+    color: #cbd5e1;
+    font-size: 14px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.large-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+}
+
+/* FOOTER BANNER */
+.footer-container {
+    max-width: 44rem;
+    margin: 0 auto;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #94a3b8; /* Diperterang untuk PageSpeed */
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-title {
+    font-weight: 700;
+    color: #cbd5e1;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #1e293b;
+    margin: 1.5rem 0;
+}
