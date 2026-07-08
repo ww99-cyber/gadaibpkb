@@ -28,13 +28,14 @@ body {
     background: linear-gradient(to right, #be123c, #dc2626, #d97706);
     color: #ffffff;
     text-align: center;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1rem;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     position: relative;
     z-index: 50;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    line-height: 1.4;
 }
 .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -65,7 +66,7 @@ body {
     border: 1px solid rgba(16, 185, 129, 0.3);
     text-decoration: none;
     transition: background-color 0.3s;
-    position: relative; /* DIBENARKAN: Agar posisi absolute tooltip mengacu pada tombol ini */
+    position: relative;
 }
 .floating-wa:hover { background-color: #10b981; }
 .floating-wa svg { width: 1.75rem; height: 1.75rem; fill: currentColor; }
@@ -93,7 +94,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 40;
-    border-bottom: 1px solid rgba(30, 41, 59, 0.6); /* DIBENARKAN: dari border-b menjadi border-bottom */
+    border-bottom: 1px solid rgba(30, 41, 59, 0.6);
 }
 .nav-container {
     display: flex;
@@ -105,10 +106,17 @@ body {
 .logo-main { font-size: 1.5rem; font-weight: 900; color: #ffffff; letter-spacing: -0.025em; text-decoration: none;}
 .text-amber { color: #f59e0b; }
 .logo-sub { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; font-weight: 700; }
+
+/* Desktop Menu (Sembunyi secara default di HP) */
 .nav-links { display: none; gap: 1.5rem; font-size: 0.875rem; font-weight: 600; }
-@media (min-width: 768px) { .nav-links { display: flex; } }
 .nav-links a { color: #cbd5e1; text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: #fbbf24; }
+
+/* Responsive Navbar untuk desktop */
+@media (min-width: 768px) { 
+    .nav-links { display: flex; } 
+}
+
 .btn-primary {
     background-color: #f59e0b;
     color: #020617;
@@ -123,18 +131,23 @@ body {
 }
 .btn-primary:hover { background-color: #d97706; }
 
-/* HERO SECTION */
+/* 4. HERO SECTION */
 .hero {
     background: linear-gradient(to bottom right, #0f172a, #312e81, #020617);
-    padding: 4rem 1rem;
+    padding: 3rem 1rem;
     border-bottom: 1px solid rgba(30, 41, 59, 0.5);
 }
 .hero-grid {
     display: grid;
-    gap: 3rem;
+    grid-template-cols: 1fr; /* Di HP menumpuk ke bawah */
+    gap: 2.5rem;
     align-items: center;
 }
-@media (min-width: 768px) { .hero-grid { grid-template-cols: 1fr 1fr; padding: 6rem 0; } }
+@media (min-width: 992px) { 
+    .hero { padding: 6rem 0; }
+    .hero-grid { grid-template-cols: 1fr 1fr; } /* Di Layar Besar Terbagi Dua */
+}
+
 .badge-ojk {
     display: inline-flex;
     align-items: center;
@@ -148,22 +161,22 @@ body {
     color: #f59e0b;
     margin-bottom: 1.5rem;
 }
-.hero h1 { font-size: 2.5rem; font-weight: 900; line-height: 1.1; color: #ffffff; margin-bottom: 1.5rem; }
+.hero h1 { font-size: 2.2rem; font-weight: 900; line-height: 1.2; color: #ffffff; margin-bottom: 1.5rem; }
 @media (min-width: 768px) { .hero h1 { font-size: 3rem; } }
+
 .hero p { color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem; }
-@media (min-width: 768px) { .hero p { font-size: 1.125rem; } }
 
 .stats-grid {
     display: grid;
     grid-template-cols: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 0.75rem;
     border-top: 1px solid #1e293b;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
     text-align: center;
 }
 .stat-val { display: block; font-size: 1.25rem; font-weight: 700; color: #f59e0b; }
 @media (min-width: 768px) { .stat-val { font-size: 1.5rem; } }
-.stat-lbl { font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
+.stat-lbl { font-size: 10px; color: #94a3b8; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; }
 
 /* FORMULIR */
 .form-box {
@@ -176,8 +189,17 @@ body {
 @media (min-width: 768px) { .form-box { padding: 2rem; } }
 .form-box h3 { font-size: 1.25rem; font-weight: 700; color: #ffffff; text-align: center; margin-bottom: 0.25rem; }
 .form-box .sub-title { font-size: 0.75rem; color: #94a3b8; text-align: center; margin-bottom: 1.5rem; }
+
 .form-group { margin-bottom: 1rem; }
-.form-grid-2 { display: grid; grid-template-cols: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-grid-2 { 
+    display: grid; 
+    grid-template-cols: 1fr; /* Di HP input form bertumpuk */
+    gap: 1rem; 
+}
+@media (min-width: 480px) {
+    .form-grid-2 { grid-template-cols: 1fr 1fr; } /* Di tablet/HP layar lebar sejajar 2 kolom */
+}
+
 label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 0.25rem; }
 input, select {
     width: 100%;
@@ -187,10 +209,11 @@ input, select {
     border-radius: 0.75rem;
     background-color: #020617;
     color: #ffffff;
-    transition: ring 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 input:focus, select:focus { outline: none; border-color: #f59e0b; box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4); }
 input::placeholder { color: #475569; }
+
 .btn-submit {
     width: 100%;
     background-color: #f59e0b;
@@ -217,32 +240,42 @@ input::placeholder { color: #475569; }
     grid-template-cols: repeat(3, 1fr);
     gap: 0.5rem;
     text-align: center;
-    font-size: 10px;
+    font-size: 9px;
     color: #94a3b8;
     font-weight: 600;
 }
+@media (min-width: 480px) { .trust-badges { font-size: 10px; } }
+
 .badge-card { 
     background-color: #020617; 
     padding: 0.5rem; 
     border-radius: 0.5rem; 
     border: 1px solid rgba(30, 41, 59, 0.5); 
     display: flex; 
-    flex-direction: column; /* DIBENARKAN: Mengubah flex-col menjadi flex-direction */
+    flex-direction: column; 
     align-items: center; 
     gap: 0.25rem; 
 }
-.badge-card span { display: block; }
 
 /* SECTIONS COMMONS */
-section { padding: 5rem 1rem; }
-.section-title { text-align: center; margin-bottom: 3.5rem; }
-.section-title span { font-size: 0.75rem; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1rem; display: block; margin-bottom: 0.5rem; }
-.section-title h2 { font-size: 1.875rem; font-weight: 800; color: #ffffff; }
-.section-title p { color: #94a3b8; font-size: 0.875rem; max-width: 36rem; margin: 0.5rem auto 0; }
+section { padding: 4rem 1rem; }
+@media (min-width: 768px) { section { padding: 6rem 1rem; } }
 
-/* LAYANAN CARDS */
-.cards-grid-3 { display: grid; gap: 2rem; }
-@media (min-width: 768px) { .cards-grid-3 { grid-template-cols: repeat(3, 1fr); } }
+.section-title { text-align: center; margin-bottom: 3rem; }
+.section-title span { font-size: 0.75rem; font-weight: 700; color: #f59e0b; text-transform: uppercase; letter-spacing: 0.1rem; display: block; margin-bottom: 0.5rem; }
+.section-title h2 { font-size: 1.75rem; font-weight: 800; color: #ffffff; line-height: 1.3; }
+@media (min-width: 768px) { .section-title h2 { font-size: 2.25rem; } }
+.section-title p { color: #94a3b8; font-size: 0.875rem; max-width: 36rem; margin: 0.5rem auto 0; line-height: 1.5; }
+
+/* LAYANAN CARDS & GRID RESPONSIVE */
+.cards-grid-3 { 
+    display: grid; 
+    grid-template-cols: 1fr; 
+    gap: 1.5rem; 
+}
+@media (min-width: 768px) { .cards-grid-3 { grid-template-cols: repeat(2, 1fr); } }
+@media (min-width: 992px) { .cards-grid-3 { grid-template-cols: repeat(3, 1fr); } }
+
 .card-layanan {
     background-color: #0f172a;
     padding: 1.5rem;
@@ -256,49 +289,70 @@ section { padding: 5rem 1rem; }
 .card-layanan:hover { border-color: #334155; }
 .icon-wrapper { width: 3rem; height: 3rem; background-color: #020617; border: 1px solid #1e293b; border-radius: 0.75rem; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
 .card-layanan h3 { font-size: 1.125rem; font-weight: 700; color: #ffffff; margin-top: 1rem; }
-.card-layanan p { color: #94a3b8; font-size: 0.75rem; line-height: 1.6; margin-top: 0.25rem; margin-bottom: 1rem; }
+.card-layanan p { color: #94a3b8; font-size: 0.8rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1.5rem; }
 .card-link { font-size: 0.75rem; font-weight: 700; color: #f59e0b; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; }
 .card-link:hover { color: #fbbf24; }
 
-/* 4 LANGKAH */
-.bg-light-section { background-color: rgba(15, 23, 42, 0.6); border-top: 1px solid #0f172a; border-bottom: 1px solid #0f172a; }
-.step-card { background-color: #0f172a; padding: 1.25rem; border-radius: 1rem; border: 1px solid #1e293b; text-align: center; }
+/* 4 LANGKAH & KEUNGGULAN SYSTEM AUTO GRID */
+.bg-light-section { background-color: rgba(15, 23, 42, 0.4); border-top: 1px solid #0f172a; border-bottom: 1px solid #0f172a; }
+.cards-grid-4 {
+    display: grid;
+    grid-template-cols: 1fr;
+    gap: 1.25rem;
+}
+@media (min-width: 480px) { .cards-grid-4 { grid-template-cols: repeat(2, 1fr); } }
+@media (min-width: 992px) { .cards-grid-4 { grid-template-cols: repeat(4, 1fr); } }
+
+.step-card { background-color: #0f172a; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e293b; text-align: center; }
 .step-num { width: 2.5rem; height: 2.5rem; background-color: #0c1020; color: #f59e0b; border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 0.5rem; margin: 0 auto 0.5rem; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 900; }
-.step-card h4 { font-weight: 700; color: #ffffff; font-size: 0.875rem; margin-bottom: 0.25rem;}
+.step-card h4 { font-weight: 700; color: #ffffff; font-size: 0.9rem; margin-bottom: 0.5rem;}
 .step-card p { color: #94a3b8; font-size: 0.75rem; line-height: 1.6; }
-.step-success { background-color: rgba(6, 78, 59, 0.4); border-color: rgba(16, 185, 129, 0.3); }
+
+.step-success { background-color: rgba(6, 78, 59, 0.3); border-color: rgba(16, 185, 129, 0.3); }
 .step-success .step-num { background-color: #059669; color: #ffffff; border: none; }
 .step-success h4 { color: #34d399; }
 .step-success p { color: rgba(209, 250, 229, 0.6); }
 
-/* KEUNGGULAN */
-.grid-4 { display: grid; gap: 1.5rem; }
-@media (min-width: 768px) { .grid-4 { grid-template-cols: repeat(4, 1fr); } }
-
-/* TESTIMONI */
+/* TESTIMONI CARDS */
 .testi-card { background-color: #0f172a; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e293b; display: flex; flex-direction: column; justify-content: space-between; }
-.testi-card p { color: #cbd5e1; font-size: 0.75rem; font-style: italic; line-height: 1.6; }
-.testi-user { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(30, 41, 59, 0.6); margin-top: 1rem; }
+.testi-card p { color: #cbd5e1; font-size: 0.8rem; font-style: italic; line-height: 1.6; }
+.testi-user { display: flex; align-items: center; gap: 0.75rem; padding-top: 1.25rem; border-top: 1px solid rgba(30, 41, 59, 0.6); margin-top: 1.25rem; }
 .avatar { width: 2.25rem; height: 2.25rem; background-color: #030712; border: 1px solid rgba(99, 102, 241, 0.2); color: #f59e0b; border-radius: 9999px; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; }
 .user-info h5 { font-weight: 700; color: #ffffff; font-size: 0.75rem; }
 .user-info span { font-size: 10px; color: #64748b; display: block; }
 
 /* PROSES SYARAT & FAQ */
-.two-col-grid { display: grid; gap: 2rem; align-items: start; }
-@media (min-width: 768px) { .two-col-grid { grid-template-cols: 1fr 1fr; } }
+.two-col-grid { display: grid; grid-template-cols: 1fr; gap: 2rem; align-items: start; }
+@media (min-width: 992px) { .two-col-grid { grid-template-cols: 1.2fr 0.8fr; } }
+
 .list-box { background-color: #0f172a; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e293b; margin-bottom: 1.5rem; }
 @media (min-width: 768px) { .list-box { padding: 2rem; } }
 .list-box h3 { font-size: 1.125rem; font-weight: 700; color: #ffffff; margin-bottom: 1.5rem; }
+
 .process-step { display: flex; align-items: start; gap: 1rem; margin-bottom: 1.25rem; }
 .proc-num { background-color: #020617; border: 1px solid #1e293b; color: #f59e0b; font-weight: 700; border-radius: 9999px; width: 1.75rem; height: 1.75rem; display: flex; align-items: center; justify-content: center; shrink-0; font-size: 0.875rem; }
 .process-step p { color: #cbd5e1; font-size: 0.875rem; line-height: 1.6; }
 .process-step strong { color: #ffffff; }
 
 .syarat-list { list-style: none; }
-.syarat-list li { display: flex; align-items: start; gap: 0.5rem; color: #cbd5e1; font-size: 0.875rem; margin-bottom: 0.75rem; }
+.syarat-list li { display: flex; align-items: start; gap: 0.5rem; color: #cbd5e1; font-size: 0.875rem; margin-bottom: 0.75rem; line-height: 1.5; }
 .syarat-list li span { color: #f59e0b; font-weight: 700; }
 
 .faq-box { background: linear-gradient(to bottom right, #0f172a, #1e1b4b); color: #ffffff; padding: 1.5rem; border-radius: 1rem; border: 1px solid #1e1b4b; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
 @media (min-width: 768px) { .faq-box { padding: 2rem; } }
-.faq-box span { font-size: 0.75rem; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 1rem; }
-.faq-box p { color: #cbd5e1; font-size: 0.875rem; }
+.faq-box span { font-size: 0.75rem; font-weight: 700; color: #818cf8; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 1.5rem; }
+.faq-content h4 { font-weight: 700; font-size: 14px; margin-bottom: 5px; color: #ffffff; line-height: 1.4; }
+.faq-content p { font-size: 13px; opacity: 0.8; line-height: 1.6; color: #cbd5e1; }
+.faq-divider { border: 0; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 1.25rem 0; }
+
+/* FAST CTA & FOOTER */
+.fast-cta { text-align: center; padding: 4rem 1rem; }
+.cta-container { max-w-3xl: 48rem; margin: 0 auto; }
+.cta-container h2 { font-size: 1.75rem; font-weight: 900; color: white; margin-bottom: 1rem; }
+@media (min-width: 768px) { .cta-container h2 { font-size: 2.25rem; } }
+.cta-container p { color: #cbd5e1; font-size: 14px; margin-bottom: 2rem; line-height: 1.6; }
+.large-btn { padding: 1rem 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 800; }
+
+.footer-container { max-width: 44rem; margin: 0 auto; font-size: 11px; line-height: 1.6; color: #64748b; padding: 2rem 1rem; text-align: center; }
+.footer-title { font-weight: 700; color: #cbd5e1; text-transform: uppercase; margin-bottom: 0.5rem; font-size: 12px; letter-spacing: 0.05em; }
+.footer-divider { border: 0; border-top: 1px solid #1e293b; margin: 1.5rem 0; }
