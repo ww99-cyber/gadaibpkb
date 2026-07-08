@@ -65,6 +65,7 @@ body {
     border: 1px solid rgba(16, 185, 129, 0.3);
     text-decoration: none;
     transition: background-color 0.3s;
+    position: relative; /* DIBENARKAN: Agar posisi absolute tooltip mengacu pada tombol ini */
 }
 .floating-wa:hover { background-color: #10b981; }
 .floating-wa svg { width: 1.75rem; height: 1.75rem; fill: currentColor; }
@@ -92,7 +93,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 40;
-    border-b: 1px solid rgba(30, 41, 59, 0.6);
+    border-bottom: 1px solid rgba(30, 41, 59, 0.6); /* DIBENARKAN: dari border-b menjadi border-bottom */
 }
 .nav-container {
     display: flex;
@@ -220,7 +221,16 @@ input::placeholder { color: #475569; }
     color: #94a3b8;
     font-weight: 600;
 }
-.badge-card { background-color: #020617; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid rgba(30, 41, 59, 0.5); display: flex; flex-col: column; align-items: center; gap: 0.25rem; }
+.badge-card { 
+    background-color: #020617; 
+    padding: 0.5rem; 
+    border-radius: 0.5rem; 
+    border: 1px solid rgba(30, 41, 59, 0.5); 
+    display: flex; 
+    flex-direction: column; /* DIBENARKAN: Mengubah flex-col menjadi flex-direction */
+    align-items: center; 
+    gap: 0.25rem; 
+}
 .badge-card span { display: block; }
 
 /* SECTIONS COMMONS */
