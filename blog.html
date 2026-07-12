@@ -4,22 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1. OPTIMASI META SEO -->
     <title>Pusat Edukasi & Tips Finansial Gadai BPKB - BFI Finance</title>
     <meta name="description" content="Temukan panduan lengkap, tips lolos survei, aturan batas tahun kendaraan, hingga perbandingan pembiayaan aman untuk solusi dana tunai Anda.">
-    <meta name="keywords" content="blog bfi finance, tips gadai bpkb, info take over kredit, panduan dana tunai ojk">
-    <meta name="author" content="BFI Finance">
-
-    <meta property="og:site_name" content="BFI Finance Mitra Resmi">
-    <meta property="og:title" content="Pusat Edukasi & Panduan Finansial Terpercaya">
-    <meta property="og:description" content="Baca artikel edukatif seputar pengelolaan dana darurat dan solusi pembiayaan multiguna resmi OJK.">
-    <meta property="og:url" content="https://ww99-cyber.github.io/gadaibpkb/blog.html">
-    <meta property="og:type" content="website">
-
-    <!-- LINK KE STYLE CSS UTAMA -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- CSS TAMBAHAN KHUSUS HALAMAN LIST BLOG (Agar Rapi Tanpa Merusak CSS Lama) -->
     <style>
         .blog-grid {
             display: grid;
@@ -35,9 +23,15 @@
             transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease forwards;
         }
-        .blog-card:hover {
-            transform: translateY(-5px);
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .blog-card img {
             width: 100%;
@@ -67,7 +61,7 @@
             text-decoration: none;
         }
         .blog-card-title a:hover {
-            color: #d97706; /* Warna Amber */
+            color: #d97706;
         }
         .blog-card-excerpt {
             font-size: 0.95rem;
@@ -81,99 +75,157 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
         }
-        .btn-readmore:hover {
-            text-decoration: underline;
+        /* Loading Animasi Indikator */
+        .loading-trigger {
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+            color: #777;
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- TOP ANNOUNCEMENT BANNER -->
-    <div class="top-banner">
-        🛡️ PUSAT INFORMASI: DAPATKAN EDUKASI FINANSIAL TERPERCAYA YANG DIAWASI RESMI OLEH OTORITAS JASA KEUANGAN (OJK).
-    </div>
-
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="max-w-6xl nav-container">
             <div>
                 <a href="index.html" class="logo-main">BFI <span class="text-amber">Finance</span></a>
-                <span class="logo-sub">Mitra Agen Resmi Terverifikasi</span>
             </div>
             <div class="nav-links">
                 <a href="index.html">Beranda</a>
-                <a href="index.html#layanan">Layanan</a>
                 <a href="blog.html" class="active" style="color: #d97706; font-weight: bold;">Artikel</a>
             </div>
-            <a href="index.html#form-pengajuan" class="btn-primary">Ajukan Dana</a>
         </div>
     </nav>
 
-    <!-- MAIN CONTAINER -->
     <main class="max-w-6xl" style="margin: 40px auto; padding: 0 20px;">
-        
         <header style="text-align: center; margin-bottom: 50px;">
-            <h1 style="font-size: 2.5rem; color: #333; margin-bottom: 10px;">Artikel & Panduan Finansial</h1>
-            <p style="color: #666; font-size: 1.1rem; max-w: 600px; margin: 0 auto;">Pelajari tips cerdas seputar solusi dana tunai, pengelolaan keuangan, dan persyaratan agunan BPKB demi masa depan bisnis Anda.</p>
+            <h1>Artikel & Panduan Finansial</h1>
+            <p>Pelajari tips cerdas seputar solusi dana tunai dan agunan BPKB.</p>
         </header>
 
-        <!-- BLOG GRID LIST -->
-        <div class="blog-grid">
-            
-            <!-- KARTU ARTIKEL 1: LEASING VS PINJOL -->
-            <article class="blog-card">
-                <img src="images/hero-leasing-vs-pinjol.webp" alt="Perbandingan leasing OJK dan pinjaman online">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">📅 12 Juli 2026 • ⏱️ 4 Min Baca</div>
-                    <h2 class="blog-card-title">
-                        <a href="article/keuntungan-leasing-ojk-vs-pinjol.html">Keuntungan Memilih Leasing Resmi OJK Dibanding Pinjol Saat Butuh Dana</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Pahami perbedaan mendasar aspek legalitas perlindungan konsumen, struktur bunga, jangka waktu tenor, hingga keamanan penyimpanan dokumen jaminan...</p>
-                    <a href="article/keuntungan-leasing-ojk-vs-pinjol.html" class="btn-readmore">Baca Selengkapnya →</a>
-                </div>
-            </article>
+        <!-- KONTEN UTAMA: AKAN DIISI OLEH JAVASCRIPT -->
+        <div class="blog-grid" id="blogContainer"></div>
 
-            <!-- KARTU ARTIKEL 2: BATAS TAHUN MOBIL -->
-            <article class="blog-card">
-                <img src="images/hero-batas-tahun-mobil.webp" alt="Ketentuan batas tahun mobil untuk gadai BPKB">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">📅 12 Juli 2026 • ⏱️ 3 Min Baca</div>
-                    <h2 class="blog-card-title">
-                        <a href="article/batas-tahun-mobil-gadai-bpkb.html">Aturan Batas Tahun Mobil Gadai BPKB yang Dapat Diterima</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Sebelum mengajukan pinjaman, cek aturan batas usia minimal untuk mobil penumpang, niaga, serta faktor penentu yang memengaruhi persetujuan pencairan...</p>
-                    <a href="article/batas-tahun-mobil-gadai-bpkb.html" class="btn-readmore">Baca Selengkapnya →</a>
-                </div>
-            </article>
-
-            <!-- KARTU ARTIKEL 3: TAKE OVER KREDIT -->
-            <article class="blog-card">
-                <img src="images/hero-take-over-mobil.webp" alt="Panduan cara take over kredit mobil">
-                <div class="blog-card-content">
-                    <div class="blog-card-meta">📅 12 Juli 2026 • ⏱️ 5 Min Baca</div>
-                    <h2 class="blog-card-title">
-                        <a href="article/take-over-kredit-mobil.html">Panduan Aman Take Over Kredit Mobil: Syarat, Proses, dan Keuntungan</a>
-                    </h2>
-                    <p class="blog-card-excerpt">Sedang mencicil di tempat lama dan butuh dana tambahan? Pelajari cara memindahkan angsuran dengan legal melalui program pembiayaan resmi...</p>
-                    <a href="article/take-over-kredit-mobil.html" class="btn-readmore">Baca Selengkapnya →</a>
-                </div>
-            </article>
-
-        </div>
-
+        <!-- INDIKATOR LOADING SAAT SCROLL -->
+        <div id="loadingTrigger" class="loading-trigger">⏳ Memuat artikel lainnya...</div>
     </main>
 
-    <!-- FOOTER -->
-    <footer style="background: #262626; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
-        <div class="max-w-6xl" style="margin: 0 auto;">
-            <p style="margin-bottom: 15px; font-weight: bold;">BFI Finance Mitra Agen Resmi</p>
-            <p style="font-size: 0.85rem; color: #aaa; max-width: 700px; margin: 0 auto 20px;">Layanan pengajuan pinjaman dana tunai bergaransi legalitas dan transparansi, diproses langsung di kantor cabang resmi terdekat Anda.</p>
-            <p style="font-size: 0.85rem; color: #777;">&copy; 2026 BFI Finance Mitra Resmi. Semua Hak Dilindungi Undang-Undang.</p>
-        </div>
-    </footer>
+    <!-- INTERAKSI INFINITE SCROLL JAVASCRIPT -->
+    <script>
+        // 1. DATABASE DATA ARTIKEL (Statis di dalam File)
+        // Jika Anda membuat artikel baru di masa depan, tinggal tambahkan datanya di dalam kotak [ ] ini.
+        const daftarArtikel = [
+            {
+                title: "Keuntungan Memilih Leasing Resmi OJK Dibanding Pinjol Saat Butuh Dana",
+                link: "article/keuntungan-leasing-ojk-vs-pinjol.html",
+                image: "images/hero-leasing-vs-pinjol.webp",
+                meta: "📅 12 Juli 2026 • ⏱️ 4 Min Baca",
+                excerpt: "Pahami perbedaan mendasar aspek legalitas perlindungan konsumen, struktur bunga, jangka waktu tenor, hingga keamanan penyimpanan dokumen jaminan..."
+            },
+            {
+                title: "Aturan Batas Tahun Mobil Gadai BPKB yang Dapat Diterima",
+                link: "article/batas-tahun-mobil-gadai-bpkb.html",
+                image: "images/hero-batas-tahun-mobil.webp",
+                meta: "📅 12 Juli 2026 • ⏱️ 3 Min Baca",
+                excerpt: "Sebelum mengajukan pinjaman, cek aturan batas usia minimal untuk mobil penumpang, niaga, serta faktor penentu yang memengaruhi persetujuan pencairan..."
+            },
+            {
+                title: "Panduan Aman Take Over Kredit Mobil: Syarat, Proses, dan Keuntungan",
+                link: "article/take-over-kredit-mobil.html",
+                image: "images/hero-take-over-mobil.webp",
+                meta: "📅 12 Juli 2026 • ⏱️ 5 Min Baca",
+                excerpt: "Sedang mencicil di tempat lama dan butuh dana tambahan? Pelajari cara memindahkan angsuran dengan legal melalui program pembiayaan resmi..."
+            },
+            // --- CONTOH ARTIKEL SIMULASI (Supaya efek scroll terasa panjang sebelum Anda membuat tulisan asli baru) ---
+            {
+                title: "5 Cara Lolos Survei Gadai BPKB Rumah Kontrak",
+                link: "#",
+                image: "images/hero-batas-tahun-mobil.webp",
+                meta: "📅 10 Juli 2026 • ⏱️ 3 Min Baca",
+                excerpt: "Banyak yang mengira rumah ngontrak tidak bisa mengajukan dana tunai. Simak trik rahasia mempersiapkan berkas pendukung agar surveyor langsung setuju..."
+            },
+            {
+                title: "Cara Menghitung Nilai Likuidasi Pasar Mobil Bekas Anda",
+                link: "#",
+                image: "images/hero-leasing-vs-pinjol.webp",
+                meta: "📅 05 Juli 2026 • ⏱️ 4 Min Baca",
+                excerpt: "Jangan salah paham dengan harga jual dealer. Begini rumusan tim analis kredit memperkirakan nilai taksir mobil operasional untuk pencairan plafon..."
+            },
+            {
+                title: "Tips Mengatur Cash Flow UMKM Menggunakan Dana Multiguna",
+                link: "#",
+                image: "images/hero-take-over-mobil.webp",
+                meta: "📅 01 Juli 2026 • ⏱️ 6 Min Baca",
+                excerpt: "Memisahkan uang pribadi dan perusahaan adalah kunci sukses bisnis mikro. Amankan modal operasional darurat dengan bunga flat terukur..."
+            }
+        ];
 
+        // 2. LOGIKA KONTROL HALAMAN
+        const container = document.getElementById('blogContainer');
+        const loader = document.getElementById('loadingTrigger');
+        
+        let artikelPerHalaman = 3; // Jumlah artikel yang muncul di awal
+        let indeksSaatIni = 0;
+        let sedangMemuat = false;
+
+        // Fungsi mencetak struktur kartu HTML ke layar
+        function tampilkanArtikel(jumlah) {
+            if (indeksSaatIni >= daftarArtikel.length) return;
+
+            loader.style.display = 'block';
+            sedangMemuat = true;
+
+            // Simulasi jeda loading 600 milidetik agar transisinya terlihat halus bagi mata pengguna
+            setTimeout(() => {
+                const batasBatas = Math.min(indeksSaatIni + jumlah, daftarArtikel.length);
+                
+                for (let i = indeksSaatIni; i < batasBatas; i++) {
+                    const item = daftarArtikel[i];
+                    const cardHTML = `
+                        <article class="blog-card">
+                            <img src="${item.image}" alt="${item.title}">
+                            <div class="blog-card-content">
+                                <div class="blog-card-meta">${item.meta}</div>
+                                <h2 class="blog-card-title">
+                                    <a href="${item.link}">${item.title}</a>
+                                </h2>
+                                <p class="blog-card-excerpt">${item.excerpt}</p>
+                                <a href="${item.link}" class="btn-readmore">Baca Selengkapnya →</a>
+                            </div>
+                        </article>
+                    `;
+                    container.innerHTML += cardHTML;
+                }
+
+                indeksSaatIni = batasBatas;
+                loader.style.display = 'none';
+                sedangMemuat = false;
+
+                // Jika semua artikel di database sudah habis keluar semua, matikan event scroll
+                if (indeksSaatIni >= daftarArtikel.length) {
+                    window.removeEventListener('scroll', deteksiScroll);
+                }
+            }, 600);
+        }
+
+        // Fungsi membaca posisi gulir layar browser pengguna
+        function deteksiScroll() {
+            if (sedangMemuat) return;
+
+            // Jika posisi scroll sisa 100 pixel sebelum menyentuh batas bawah halaman web, panggil data baru
+            if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 100) {
+                tampilkanArtikel(artikelPerHalaman);
+            }
+        }
+
+        // Jalankan cetakan 3 artikel pertama saat halaman pertama kali dibuka
+        tampilkanArtikel(artikelPerHalaman);
+
+        // Pasang sensor scroll layar browser
+        window.addEventListener('scroll', deteksiScroll);
+    </script>
 </body>
 </html>
