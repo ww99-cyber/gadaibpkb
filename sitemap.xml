@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Halaman Utama (Homepage) -->
+  <url>
+    <loc>https://solusidanabfi.com/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Halaman Artikel: Proses Pencairan -->
+  <url>
+    <loc>https://solusidanabfi.com/article/proses-pencairan-bpkb-mobil.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Artikel: Lolos Survei Rumah Kontrak -->
+  <url>
+    <loc>https://solusidanabfi.com/article/cara-lolos-survei-rumah-kontrak.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Artikel: Batas Tahun Mobil -->
+  <url>
+    <loc>https://solusidanabfi.com/article/batas-tahun-mobil-gadai-bpkb.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Artikel: Take Over Kredit (Jika Ada) -->
+  <url>
+    <loc>https://solusidanabfi.com/article/take-over-kredit-mobil.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
