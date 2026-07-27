@@ -488,6 +488,7 @@
                 </ul>
             </div>
 
+            <!-- Form Card yang Sudah Diperbarui -->
             <div class="lead-form-card">
                 <h3>Cek Estimasi Pencairan</h3>
                 <p>Isi formulir singkat di bawah untuk respon cepat via WhatsApp:</p>
@@ -497,11 +498,18 @@
                         <input type="text" id="nama" class="form-control" placeholder="Contoh: Budi Santoso" required>
                     </div>
                     <div class="form-group">
-                        <label for="jenis">Jenis Kendaraan</label>
+                        <label for="jenis">Kategori Kendaraan</label>
                         <select id="jenis" class="form-control" required>
-                            <option value="Mobil">Mobil / Commercial</option>
+                            <option value="Mobil Penumpang">Mobil Penumpang (Sedan, SUV, MPV)</option>
                             <option value="Motor">Motor</option>
+                            <option value="Pick-up">Pick-up / Box</option>
+                            <option value="Truk">Truk / Commercial</option>
+                            <option value="Bus / Microbus">Bus / Microbus</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipe">Merek & Tipe Kendaraan</label>
+                        <input type="text" id="tipe" class="form-control" placeholder="Contoh: Toyota Avanza G / Honda Vario 125" required>
                     </div>
                     <div class="form-group">
                         <label for="tahun">Tahun Kendaraan</label>
@@ -581,7 +589,7 @@
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question">
-                        Apakah status BI Checking KOL 5 / Blacklist bisa diproses?
+                        Apakah status BI Checking KOL 5 / Blacklist bisa dipproses?
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
@@ -712,19 +720,20 @@
             });
         });
 
-        // Form Redirect to WhatsApp Function
+        // Form Redirect to WhatsApp Function yang Diperbarui
         function sendToWhatsApp() {
             const nama = document.getElementById('nama').value;
             const jenis = document.getElementById('jenis').value;
+            const tipe = document.getElementById('tipe').value;
             const tahun = document.getElementById('tahun').value;
 
-            if(!nama || !tahun) {
-                alert('Mohon isi nama dan tahun kendaraan terlebih dahulu.');
+            if(!nama || !tipe || !tahun) {
+                alert('Mohon lengkapi nama, tipe kendaraan, dan tahun kendaraan terlebih dahulu.');
                 return;
             }
 
             const phoneNumber = '6281234567890'; // Ganti dengan nomor WhatsApp Anda
-            const message = `Halo, saya ingin konsultasi pinjaman BPKB KOL 5 BFI Finance.\n\n*Nama:* ${nama}\n*Jenis Unit:* ${jenis}\n*Tahun:* ${tahun}`;
+            const message = `Halo, saya ingin konsultasi pinjaman BPKB KOL 5 BFI Finance.\n\n*Nama:* ${nama}\n*Kategori:* ${jenis}\n*Merek/Tipe Unit:* ${tipe}\n*Tahun:* ${tahun}`;
             
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
