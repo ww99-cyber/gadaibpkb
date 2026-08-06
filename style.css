@@ -28,16 +28,16 @@ body {
     padding-right: 1rem;
 }
 
-/* WARNA TEKS KHUSUS */
+/* WARNA TEKS KHUSUS - Disesuaikan agar tidak terlalu menyilaukan */
 .text-amber {
-    color: #f59e0b;
+    color: #d97706;
 }
 
 /* ==========================================================================
    2. TOP ANNOUNCEMENT BANNER
    ========================================================================== */
 .top-banner {
-    background: linear-gradient(to right, #be123c, #dc2626, #d97706);
+    background: linear-gradient(to right, #9f1239, #b91c1c, #b45309); /* Warna gradien lebih teduh */
     color: #ffffff;
     text-align: center;
     padding: 0.6rem 1rem;
@@ -53,7 +53,7 @@ body {
 .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     background-color: #ffffff;
-    color: #dc2626;
+    color: #b91c1c;
     padding: 0.125rem 0.375rem;
     border-radius: 0.25rem;
 }
@@ -64,34 +64,33 @@ body {
 }
 
 /* ==========================================================================
-   3. FLOATING WHATSAPP BUTTON (ANIMATED & RESPONSIVE)
+   3. FLOATING WHATSAPP BUTTON (ELEGANT & RESPONSIVE)
    ========================================================================== */
 .floating-wa {
     position: fixed;
     bottom: 1.25rem;
     left: 50%;
-    transform: translateX(-50%); /* Posisi tengah bawah di Mobile */
+    transform: translateX(-50%);
     z-index: 50;
-    background-color: #25d366;
+    background-color: #059669; /* Hijau zamrud lebih teduh dibanding neon hijau */
     color: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 9999px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     text-decoration: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     
-    /* Kombinasi Animasi: Ring Pulse & Bounce Berkala */
-    animation: waPulse 2s infinite, waBounce 6s infinite 3s;
+    animation: waPulse 2.5s infinite, waBounce 6s infinite 3s;
 }
 
 .floating-wa:hover {
-    background-color: #128c7e;
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    background-color: #047857;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
 }
 
 .floating-wa svg {
@@ -109,30 +108,29 @@ body {
     opacity: 1;
 }
 
-/* Penyesuaian Khusus Layar Tablet & PC Desktop */
+/* Media Query Layar Desktop/Tablet */
 @media (min-width: 768px) {
     .floating-wa {
         left: auto;
         right: 1.5rem;
-        transform: none; /* Reset posisi tengah untuk Desktop */
+        transform: none;
         padding: 1rem;
-        border-radius: 50%; /* Bulat sempurna di Desktop */
+        border-radius: 50%;
         width: 3.75rem;
         height: 3.75rem;
         
-        /* Animasi Desktop tanpa efek translateX agar tidak bentrok */
-        animation: waPulse 2s infinite, waBounceDesktop 6s infinite 3s;
+        animation: waPulse 2.5s infinite, waBounceDesktop 6s infinite 3s;
     }
     
     .floating-wa:hover {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
     
     .wa-tooltip {
         position: absolute;
         right: 4.25rem;
         background-color: #0f172a;
-        color: #f1f5f9;
+        color: #e2e8f0;
         font-size: 0.75rem;
         font-weight: 600;
         padding: 0.5rem 0.875rem;
@@ -151,32 +149,32 @@ body {
     }
 }
 
-/* ANIMASI CSS FLOATING WA */
+/* ANIMASI FLOATING WA DENGAN GLOW HALUS */
 @keyframes waPulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.5);
     }
     70% {
-        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 14px rgba(5, 150, 105, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
     }
 }
 
 @keyframes waBounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
-    10% { transform: translateX(-50%) translateY(-8px); }
+    10% { transform: translateX(-50%) translateY(-6px); }
     15% { transform: translateX(-50%) translateY(0); }
-    20% { transform: translateX(-50%) translateY(-4px); }
+    20% { transform: translateX(-50%) translateY(-3px); }
     25% { transform: translateX(-50%) translateY(0); }
 }
 
 @keyframes waBounceDesktop {
     0%, 100% { transform: translateY(0); }
-    10% { transform: translateY(-8px); }
+    10% { transform: translateY(-6px); }
     15% { transform: translateY(0); }
-    20% { transform: translateY(-4px); }
+    20% { transform: translateY(-3px); }
     25% { transform: translateY(0); }
 }
 
@@ -184,7 +182,7 @@ body {
    4. NAVIGATION BAR (NAVBAR)
    ========================================================================== */
 .navbar {
-    background-color: rgba(15, 23, 42, 0.8);
+    background-color: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
@@ -213,11 +211,10 @@ body {
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #cbd5e1; /* Kontras PageSpeed Lolos */
+    color: #94a3b8;
     font-weight: 700;
 }
 
-/* Menu Navigasi Desktop */
 .nav-links {
     display: none;
     gap: 1.5rem;
@@ -232,7 +229,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: #fbbf24;
+    color: #d97706; /* Hover warna Amber Teduh */
 }
 
 @media (min-width: 992px) {
@@ -243,8 +240,8 @@ body {
 
 /* TOMBOL UTAMA */
 .btn-primary {
-    background-color: #f59e0b;
-    color: #020617;
+    background-color: #d97706; /* Amber warm, tidak menyilaukan */
+    color: #ffffff;
     font-weight: 700;
     padding: 0.5rem 1.25rem;
     border-radius: 0.75rem;
@@ -256,36 +253,36 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #d97706;
+    background-color: #b45309;
 }
 
 /* ==========================================================================
    5. HERO SECTION & FORMULIR PENGAJUAN
    ========================================================================== */
 .hero {
-    background: linear-gradient(to bottom right, #0f172a, #312e81, #020617);
+    background: linear-gradient(to bottom right, #0f172a, #1e1b4b, #020617);
     padding: 3rem 1rem;
     border-bottom: 1px solid rgba(30, 41, 59, 0.5);
 }
 
 .hero-grid {
     display: grid;
-    grid-template-cols: 1fr; /* 1 Kolom penuh di HP */
+    grid-template-cols: 1fr;
     gap: 2.5rem;
     align-items: center;
 }
 
 @media (min-width: 992px) {
     .hero { padding: 6rem 0; }
-    .hero-grid { grid-template-cols: 1fr 1fr; } /* 2 Kolom berdampingan di PC */
+    .hero-grid { grid-template-cols: 1fr 1fr; }
 }
 
 .badge-ojk {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: rgba(49, 46, 129, 0.8);
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background-color: rgba(30, 27, 75, 0.8);
+    border: 1px solid rgba(99, 102, 241, 0.25);
     padding: 0.375rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.75rem;
@@ -336,7 +333,7 @@ body {
 
 .stat-lbl {
     font-size: 10px;
-    color: #cbd5e1;
+    color: #94a3b8;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -365,7 +362,7 @@ body {
 
 .form-box .sub-title {
     font-size: 0.75rem;
-    color: #cbd5e1;
+    color: #94a3b8;
     text-align: center;
     margin-bottom: 1.5rem;
 }
@@ -390,7 +387,7 @@ label {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #cbd5e1; /* Kontras Tinggi Lolos Standar OJK/PageSpeed */
+    color: #cbd5e1;
     margin-bottom: 0.25rem;
 }
 
@@ -407,19 +404,19 @@ input, select {
 
 input:focus, select:focus {
     outline: none;
-    border-color: #f59e0b;
-    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4);
+    border-color: #d97706;
+    box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.3);
 }
 
 input::placeholder {
-    color: #94a3b8; /* Kontras Placeholder Diperjelas */
+    color: #64748b;
 }
 
 .btn-submit {
     width: 100%;
-    background-color: #f59e0b;
-    color: #020617;
-    font-weight: 900;
+    background-color: #d97706; /* Warna tombol lebih hangat & nyaman */
+    color: #ffffff;
+    font-weight: 800;
     padding: 0.875rem;
     border-radius: 0.75rem;
     border: none;
@@ -432,7 +429,7 @@ input::placeholder {
 }
 
 .btn-submit:hover {
-    background-color: #d97706;
+    background-color: #b45309;
 }
 
 /* TRUST BADGES FORM */
@@ -445,7 +442,7 @@ input::placeholder {
     gap: 0.5rem;
     text-align: center;
     font-size: 9px;
-    color: #cbd5e1;
+    color: #94a3b8;
     font-weight: 600;
 }
 
@@ -483,7 +480,7 @@ section {
 .section-title span {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #f59e0b;
+    color: #d97706;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     display: block;
@@ -571,7 +568,7 @@ section {
 .card-link {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #f59e0b;
+    color: #d97706;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -579,7 +576,7 @@ section {
 }
 
 .card-link:hover {
-    color: #fbbf24;
+    color: #f59e0b;
 }
 
 /* ==========================================================================
@@ -616,9 +613,9 @@ section {
 .step-num {
     width: 2.5rem;
     height: 2.5rem;
-    background-color: #0c1020;
-    color: #f59e0b;
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    background-color: #020617;
+    color: #d97706;
+    border: 1px solid rgba(217, 119, 6, 0.2);
     border-radius: 0.5rem;
     margin: 0 auto 0.5rem;
     display: flex;
@@ -643,22 +640,22 @@ section {
 
 /* KARTU LANGKAH KE-4 (KHUSUS CAIR) */
 .step-success {
-    background-color: rgba(6, 78, 59, 0.3);
-    border-color: rgba(16, 185, 129, 0.3);
+    background-color: rgba(6, 78, 59, 0.25);
+    border-color: rgba(16, 185, 129, 0.25);
 }
 
 .step-success .step-num {
-    background-color: #059669;
+    background-color: #047857;
     color: #ffffff;
     border: none;
 }
 
 .step-success h4 {
-    color: #34d399;
+    color: #10b981;
 }
 
 .step-success p {
-    color: rgba(209, 250, 229, 0.75);
+    color: #a7f3d0;
 }
 
 /* ==========================================================================
@@ -693,9 +690,9 @@ section {
 .avatar {
     width: 2.25rem;
     height: 2.25rem;
-    background-color: #030712;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    color: #f59e0b;
+    background-color: #020617;
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    color: #d97706;
     border-radius: 9999px;
     font-weight: 700;
     display: flex;
@@ -759,7 +756,7 @@ section {
 .proc-num {
     background-color: #020617;
     border: 1px solid #1e293b;
-    color: #f59e0b;
+    color: #d97706;
     font-weight: 700;
     border-radius: 9999px;
     width: 1.75rem;
@@ -796,7 +793,7 @@ section {
 }
 
 .syarat-list li span {
-    color: #f59e0b;
+    color: #d97706;
     font-weight: 700;
 }
 
@@ -817,7 +814,7 @@ section {
 .faq-box span {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #818cf8;
+    color: #a5b4fc;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     display: block;
@@ -840,7 +837,7 @@ section {
 
 .faq-divider {
     border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     margin: 1.25rem 0;
 }
 
@@ -889,7 +886,7 @@ section {
     margin: 0 auto;
     font-size: 11px;
     line-height: 1.6;
-    color: #94a3b8; /* Diperterang untuk PageSpeed */
+    color: #94a3b8;
     padding: 2rem 1rem;
     text-align: center;
 }
@@ -913,7 +910,7 @@ section {
    12. STYLING UNTUK HALAMAN ARTIKEL (BLOG)
    ========================================================================== */
 .max-w-3xl {
-    max-width: 48rem; /* Lebar artikel ideal agar mata tidak lelah membaca */
+    max-width: 48rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.25rem;
@@ -931,7 +928,7 @@ section {
     margin-bottom: 1.5rem;
 }
 .breadcrumb a {
-    color: #f59e0b;
+    color: #d97706;
     text-decoration: none;
 }
 
@@ -954,11 +951,10 @@ section {
     border-bottom: 1px solid #1e293b;
 }
 
-/* Mengatur Jarak Elemen di Dalam Text Artikel */
 .blog-content p {
     font-size: 1rem;
     line-height: 1.7;
-    color: #cbd5e1; /* Kontras tinggi aman PageSpeed */
+    color: #cbd5e1;
     margin-bottom: 1.5rem;
 }
 
@@ -973,19 +969,17 @@ section {
     .blog-content h2 { font-size: 1.5rem; }
 }
 
-/* Desain Box Kutipan/Tips */
 .blog-content blockquote {
     background-color: #0f172a;
-    border-left: 4px solid #f59e0b;
+    border-left: 4px solid #d97706;
     padding: 1.25rem;
     border-radius: 0.5rem;
     margin: 2rem 0;
 }
 .blog-content blockquote strong {
-    color: #f59e0b;
+    color: #d97706;
 }
 
-/* Box CTA di Bawah Artikel */
 .blog-cta {
     background: linear-gradient(to bottom right, #0f172a, #1e1b4b);
     border: 1px solid #1e293b;
