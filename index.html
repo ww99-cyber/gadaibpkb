@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solusidanabfi Pencairan Dana Cepat & Aman - Mitra Resmi BFI Finance</title>
 
-    <!-- Preconnect & DNS Prefetch untuk Mempercepat Loading Resource Pihak Ketiga -->
+    <!-- Preconnect & DNS Prefetch -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     <link rel="dns-prefetch" href="//connect.facebook.net">
@@ -33,9 +33,8 @@
     <meta name="geo.position" content="-6.1783;106.6319">
     <meta name="ICBM" content="-6.1783, 106.6319">
 
-    <!-- Memuat CSS secara Non-Blocking agar tidak menghambat render awal -->
-    <link rel="preload" href="./style.css?v=1.2" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="./style.css?v=1.2"></noscript>
+    <!-- Memuat CSS secara langsung untuk mencegah Layout Shift (CLS = 0) -->
+    <link rel="stylesheet" href="./style.css?v=1.3">
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -71,7 +70,7 @@
     }
     </script>
 
-    <!-- Google Analytics & Meta Pixel dengan Delayed Trigger (Mengoptimalkan TBT & Unused JS) -->
+    <!-- Google Analytics & Meta Pixel dengan Delayed Trigger -->
     <script>
       let analyticsLoaded = false;
       function loadAnalyticsScripts() {
@@ -115,7 +114,6 @@
         fbq('track', 'PageView');
       }
 
-      // Jalankan script analitik setelah user interaksi (scroll/touch) atau setelah 3.5 detik
       ['touchstart', 'scroll', 'mousemove', 'keydown'].forEach(function(evt) {
         window.addEventListener(evt, loadAnalyticsScripts, { once: true, passive: true });
       });
@@ -129,7 +127,7 @@
     </div>
 
     <a href="https://wa.me/6282360296799?text=Halo%20Admin%20BFI..." onclick="return gtag_report_conversion ? gtag_report_conversion('https://wa.me/6282360296799?text=Halo%20Admin%20BFI...') : true;" target="_blank" rel="noopener" class="floating-wa" aria-label="Chat WhatsApp">
-        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.847.001-2.63-1.019-5.101-2.871-6.955C16.612 1.848 14.14 1.828 11.51 1.828c-5.438 0-9.862 4.414-9.865 9.848-.001 1.77.475 3.5 1.378 5.022l-.994 3.634 3.73-.978zm11.567-5.282c-.313-.156-1.854-.915-2.131-1.016-.277-.1-.478-.156-.678.143-.2.299-.775.915-.951 1.115-.175.199-.35.226-.663.07-3.118-1.557-4.426-2.667-5.617-4.708-.188-.323-.019-.498.143-.659.144-.145.313-.362.47-.543.156-.181.21-.308.312-.513.104-.206.052-.385-.026-.541-.078-.156-.678-1.634-.929-2.242-.244-.588-.492-.51-.678-.519-.174-.009-.374-.01-.573-.01-.2 0-.523.075-.797.374-.274.299-1.043 1.017-1.043 2.479 0 1.462 1.065 2.876 1.213 3.074.149.199 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.854-.759 2.118-1.453.265-.694.265-1.29.187-1.413-.079-.122-.276-.199-.589-.355z"/></svg>
+        <svg viewBox="0 0 24 24" width="24" height="24" style="width:24px;height:24px;display:inline-block;"><path fill="currentColor" d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.713-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.413 9.863-9.847.001-2.63-1.019-5.101-2.871-6.955C16.612 1.848 14.14 1.828 11.51 1.828c-5.438 0-9.862 4.414-9.865 9.848-.001 1.77.475 3.5 1.378 5.022l-.994 3.634 3.73-.978zm11.567-5.282c-.313-.156-1.854-.915-2.131-1.016-.277-.1-.478-.156-.678.143-.2.299-.775.915-.951 1.115-.175.199-.35.226-.663.07-3.118-1.557-4.426-2.667-5.617-4.708-.188-.323-.019-.498.143-.659.144-.145.313-.362.47-.543.156-.181.21-.308.312-.513.104-.206.052-.385-.026-.541-.078-.156-.678-1.634-.929-2.242-.244-.588-.492-.51-.678-.519-.174-.009-.374-.01-.573-.01-.2 0-.523.075-.797.374-.274.299-1.043 1.017-1.043 2.479 0 1.462 1.065 2.876 1.213 3.074.149.199 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.854-.759 2.118-1.453.265-.694.265-1.29.187-1.413-.079-.122-.276-.199-.589-.355z"/></svg>
         <span class="wa-tooltip">Butuh Bantuan? Chat Saya!</span>
     </a>
 
