@@ -4,30 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1. OPTIMASI SEO & META DATA -->
     <title>Batas Tahun Kendaraan Gadai BPKB Mobil di BFI Finance Resmi</title>
     <meta name="description" content="Ketahui syarat batas tahun kendaraan dan jenis mobil yang bisa digadaikan di BFI Finance. Panduan lengkap agar pengajuan dana tunai Anda tidak ditolak analis.">
     <meta name="keywords" content="batas tahun kendaraan gadai bpkb mobil, jenis mobil yang bisa digadaikan, bfi finance resmi ojk, syarat tahun mobil bfi">
     <meta name="author" content="BFI Finance">
 
-    <!-- PERBAIKAN SITE NAME -->
     <meta property="og:site_name" content="BFI Finance Mitra Resmi">
-
-    <!-- 2. META OPEN GRAPH -->
     <meta property="og:title" content="Mengenal Jenis Mobil dan Batas Tahun Kendaraan untuk Gadai BPKB">
     <meta property="og:description" content="Jangan sampai ditolak! Cek aturan umur kendaraan dan jenis mobil yang bisa dicairkan menjadi dana tunai di BFI Finance.">
     <meta property="og:image" content="https://ww99-cyber.github.io/gadaibpkb/images/hero-batas-tahun-mobil.webp">
     <meta property="og:url" content="https://ww99-cyber.github.io/gadaibpkb/article/batas-tahun-mobil-gadai-bpkb.html">
     <meta property="og:type" content="article">
 
-    <!-- 3. RESOURCE HINTS & PRELOAD HERO IMAGE (Meningkatkan LCP) -->
-    <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preload" as="image" href="../images/hero-batas-tahun-mobil.webp" fetchpriority="high">
+    <!-- 1. PRELOAD ELEMEN LCP (GAMBAR UTAMA) -->
+    <!-- Sangat Penting: Menyelesaikan masalah 'LCP request discovery' -->
+    <link rel="preload" as="image" href="../images/hero-batas-tahun-mobil.webp" fetchpriority="high" type="image/webp">
 
-    <!-- LINK KE STYLE CSS UTAMA -->
-    <link rel="stylesheet" href="../style.css">
+    <!-- 2. MENCEGAH RENDER-BLOCKING CSS -->
+    <link rel="preload" href="../style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../style.css"></noscript>
 
-    <!-- 4. SCHEMA MARKUP JSON-LD -->
+    <!-- CRITICAL INLINE STYLES (Agar tampilan di atas layar/above-the-fold langsung muncul) -->
+    <style>
+        body{margin:0;padding:0;background-color:#020617;color:#e2e8f0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+        .max-w-6xl{max-width:72rem;margin:0 auto;padding:0 1rem}
+        .max-w-3xl{max-width:48rem;margin:0 auto;padding:0 1.25rem}
+        .text-amber{color:#d97706}
+        .top-banner{background:linear-gradient(to right,#9f1239,#b91c1c,#b45309);color:#fff;text-align:center;padding:.6rem 1rem;font-size:.75rem;font-weight:700;line-height:1.4}
+        .navbar{background-color:rgba(15,23,42,.85);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(30,41,59,.6)}
+        .nav-container{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+        .logo-main{font-size:1.5rem;font-weight:900;color:#fff;text-decoration:none}
+        .logo-sub{display:block;font-size:10px;text-transform:uppercase;color:#94a3b8;font-weight:700}
+        .btn-primary{background-color:#d97706;color:#fff;font-weight:700;padding:.5rem 1.25rem;border-radius:.75rem;font-size:.875rem;text-decoration:none;display:inline-block}
+        .blog-container{padding-top:2rem;padding-bottom:5rem}
+        .breadcrumb{font-size:.75rem;color:#94a3b8;margin-bottom:1.5rem}
+        .breadcrumb a{color:#d97706;text-decoration:none}
+        .blog-header h1{font-size:1.85rem;font-weight:800;line-height:1.3;color:#fff;margin-bottom:.75rem}
+        .blog-meta{font-size:.8rem;color:#cbd5e1;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid #1e293b}
+        .img-responsive{width:100%;height:auto;border-radius:.75rem;margin:1.5rem 0;object-fit:cover;aspect-ratio:16/9;background-color:#0f172a}
+    </style>
+
+    <!-- SCHEMA MARKUP -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -94,13 +111,14 @@
                 <span>📅 10 Juli 2026</span> • <span>✍️ Oleh: BFI Finance</span> • <span>⏱️ 4 Menit Baca</span>
             </div>
             
-            <!-- GAMBAR UTAMA (Hero Image di-render secepat mungkin, tanpa lazy load & diberi atribut size) -->
+            <!-- HERO IMAGE (Elemen LCP) -->
             <img src="../images/hero-batas-tahun-mobil.webp" 
                  alt="Aturan jenis mobil dan batas tahun kendaraan gadai bpkb mobil di bfi finance" 
                  class="img-responsive" 
                  width="800" 
                  height="450" 
-                 fetchpriority="high">
+                 fetchpriority="high"
+                 decoding="sync">
         </header>
 
         <!-- Isi Konten -->
@@ -132,15 +150,14 @@
                 <p>👉 <strong>Ketentuan Batas Tahun:</strong> Usia kendaraan maksimal berumur **10 tahun** saat masa kontrak pembiayaan berakhir.</p>
             </div>
 
-            <!-- GAMBAR 2: INFOGRAFIS ATURAN TAHUN (Lazy Load & Atribut Dimensi Tambahan) -->
+            <!-- GAMBAR 2 (Gambar di bawah layar -> lazy load) -->
             <img src="../images/infografis-tabel-tahun-mobil.webp" 
                  alt="Infografis tabel batas minimal tahun kendaraan niaga dan penumpang di BFI Finance" 
                  class="img-responsive" 
                  width="800" 
                  height="450" 
                  loading="lazy" 
-                 decoding="async" 
-                 style="border-radius: 8px; margin: 25px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                 decoding="async">
 
             <h2>Klasifikasi Jenis Mobil yang Dapat Diproses</h2>
             <p>Selain memperhatikan faktor umur perakitan pabrik, pastikan jenis merek kendaraan Anda masuk ke dalam daftar aman komite kredit berikut:</p>
@@ -155,15 +172,14 @@
                 <strong>Pengecekan Legalitas Dokumen STNK:</strong> Yang tidak kalah penting, pastikan status pajak kendaraan Anda dalam kondisi hidup atau tidak mati lebih dari 2 tahun. Pajak yang mati terlalu lama akan memotong nilai pencairan bersih Anda karena akan dialokasikan langsung untuk biaya pengurusan perpanjangan STNK/BBN oleh tim biro jasa internal leasing.
             </blockquote>
 
-            <!-- GAMBAR 3: FOTO INSPEKSI KENDARAAN (Lazy Load & Atribut Dimensi Tambahan) -->
+            <!-- GAMBAR 3 (Gambar di bawah layar -> lazy load) -->
             <img src="../images/cek-fisik-tahun-mobil.webp" 
                  alt="Petugas surveyor sedang mengecek keaslian nomor mesin dan kondisi fisik mobil" 
                  class="img-responsive" 
                  width="800" 
                  height="450" 
                  loading="lazy" 
-                 decoding="async" 
-                 style="border-radius: 8px; margin: 20px 0;">
+                 decoding="async">
 
             <h2>Kesimpulan</h2>
             <p>Dengan mengetahui spesifikasi teknis syarat tahun mobil bfi ini, Anda kini bisa menilai secara mandiri apakah unit mobil kesayangan Anda di garasi memenuhi kualifikasi hukum. Pengisian data yang akurat di awal akan mempercepat persetujuan berkas dari tim surveyor lapangan.</p>
@@ -172,8 +188,8 @@
         <!-- SEKSI CTA -->
         <div class="blog-cta">
             <h3>Ragu Apakah Tahun Mobil Anda Bisa Masuk Kriteria?</h3>
-            <p>Jangan tebak-tebak sendiri. Kirimkan foto lembar STNK depan-belakang Anda ke WhatsApp marketing kami, dan kami akan langsung melakukan cek sistem validasi kelayakan unit Anda dalam 5 menit!</p>
-            <a href="https://wa.me/6282360296799?text=Halo%20BFI%20Finance,%20saya%20ingin%20cek%20apakah%20tipe%20dan%20tahun%20mobil%20saya%20masuk%20syarat%20gadai%20BPKB." target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 1rem 2rem; font-size: 1rem; display: inline-block;">Cek Kelayakan Mobil via WA</a>
+            <p>Jangan tebak-tebak sendiri. Kirimkan foto lembar STNK depan-belakang Anda ke WhatsApp marketing kami, dan kami melekukan cek sistem validasi kelayakan unit Anda dalam 5 menit!</p>
+            <a href="https://wa.me/6282360296799?text=Halo%20BFI%20Finance,%20saya%20ingin%20cek%20apakah%20tipe%20dan%20tahun%20mobil%20saya%20masuk%20syarat%20gadai%20BPKB." target="_blank" rel="noopener noreferrer" class="btn-primary" style="padding: 1rem 2rem; font-size: 1rem;">Cek Kelayakan Mobil via WA</a>
         </div>
 
     </main>
@@ -188,7 +204,7 @@
         </div>
     </footer>
 
-    <!-- 5. GOOGLE ANALYTICS DILETAKKAN DI PALING BAWAH + DEFER UNTUK MENCEGAH BLOCKING RENDER -->
+    <!-- ANALYTICS DILETAKKAN DI PALING BAWAH DENGAN DEFER -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-LE5MDVJX7S"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
